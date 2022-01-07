@@ -1,0 +1,201 @@
+<div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+        <div class="container mt-5 mb-5">
+            <div class="row g-0">
+                {{>message}}
+                {{#if msj}}
+                <div class="container p-4">
+                    <div class="row">
+                        <div class="col-md-4 mx-auto">
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>{{msj}}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+                <div class="col-12">
+                    <h2>Profile</h2>
+                </div>
+
+                <div class="col-12">
+                    <div class="level-box bg-white rounded">
+                        <div class="d-flex align-items-center p-2 border-bottom">
+                            <div class="text-muted">Name:</div>
+                            <div class="pink-label ps-2">{{user.Nombre_Cliente}}</div>
+                            <div class="ms-auto"> <button class="btn btn-default"> <span class="fas fa-minus"></span> </button> </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="img-container"> <img class="avatarimg" src="https://placekitten.com/50/50" alt="Avatar" width="50px" height="50px"> </div>
+                            <div class="ps-3">
+                                <div class="fw-600 pb-1">{{user.Correo_Cliente}}</div>
+                                <p class="m-0 text-grey fs-09">User: {{user.Usuario_Cliente}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form action="/users/" method="GET">
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary mb-3">NEW ORDER</button>
+                </div>
+                    
+                </form>
+                <div class="col-12">
+                    <div class="container">
+                        <div class="table-wrap">
+                            <table class="table table-borderless table-responsive table-hover">
+                                <thead>
+                                    <tr class="table-dark">
+                                        <th scope="col">#</th>
+                                        <th scope="col">Server</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Method</th>
+                                        <th scope="col">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody><!--
+                                        <tr>
+                                            <td scope="row">
+                                                <a href="/auth/request" style="all: unset; color:black;"><div class="fw-600">1</div></a>
+                                            </td>
+                                            <td>
+                                                <a href="/auth/request" style="all: unset; color:black;"><div class="fw-600">North America</div></a>
+                                            </td>
+                                            <td>
+                                                <a href="/auth/request" style="all: unset; color:black;"><div class="fw-600">Solo/Duo</div></a>
+                                            </td>
+                                            <td>
+                                                <div class="d-inline-flex align-items-center active">
+                                                    <div class="circle"></div>
+                                                    <div class="ps-2">Active</div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="/auth/request" style="all: unset; color:black;"><div class="fw-600">Duo</div></a>
+                                            </td>
+                                            <td>
+                                                <a href="/auth/request" style="all: unset; color:black;"><div class="fw-600">$ 100.00</div></a>
+                                            </td>allorders, allfinished, allinprogress
+                                        </tr>-->
+                                        {{#each allinprogress}}
+                                        <tr>
+                                            <td scope="row"> 
+                                                <div class="fw-600">{{this.ID_Pedido}}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="fw-600">{{this.Servidor}}</div><br>
+                                                {{#if this.Id_ig}}
+                                                    Riot credentials received.
+                                                {{else}}
+                                                    Waiting Riot credentials.
+                                                {{/if}}
+                                            </td>
+                                            <td>
+                                                <div class="fw-600">{{this.Modalidad}}</div>
+                                            </td>
+                                            <td>
+                                                <div class="d-inline-flex align-items-center active">
+                                                    <div class="circle"></div>
+                                                    <div class="ps-2">In progress</div>
+                                                </div>
+                                                <br>
+                                                <form action="/auth/request" method="POST">
+                                                    <input name="idatomar" type="text" value="{{this.ID_Pedido}}" style="display: none; visibility: hidden;">
+                                                    <button type="submit" class="btn btn-dark btn-sm">check progress</button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <div class="fw-600">Solo</div>
+                                            </td>
+                                            <td>
+                                                <div class="fw-600">$ 100.00</div>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                        {{#each allorders}}
+                                        <tr>
+                                            <td scope="row"> 
+                                                <div class="fw-600">{{this.ID_Pedido_Activo}}</div>
+                                            </td>
+                                            <td>
+                                                <div class="fw-600">{{this.Servidor_Activo}}</div>
+                                            </td>
+                                            <td>
+                                                <div class="fw-600">{{this.Modalidad_Activo}}</div>
+                                            </td>
+                                            <td>
+                                                <div class="spinner-border" role="status">
+                                                    <span class="visually-hidden">Loading...</span>
+                                                </div>
+                                                Waiting for booster...
+                                            </td>
+                                            <td>
+                                                <div class="fw-600">Solo</div>
+                                            </td>
+                                            <td>
+                                                <div class="fw-600">$ 100.00</div>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                         {{#each allfinished}}
+                                        <tr>
+                                            <td scope="row"> 
+                                                <div class="fw-600">{{this.ID_Pedido}}</div>
+                                            </td>
+                                            <td>
+                                                <div class="fw-600">{{this.Servidor}}</div>
+                                            </td>
+                                            <td>
+                                                <div class="fw-600">{{this.Modalidad}}</div>
+                                            </td>
+                                            <td>
+                                                <div class="d-inline-flex align-items-center waiting">
+                                                    <div class="circle"></div>
+                                                    <div class="ps-2">Finished</div>
+                                                </div>
+                                                <br>
+                                            </td>
+                                            <td>
+                                                <div class="fw-600">Solo</div>
+                                            </td>
+                                            <td>
+                                                <div class="fw-600">$ 100.00</div>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                        {{#if empty}}
+                                            <tr>
+                                                <td scope="row"> 
+                                                    <div class="fw-600">0</div>
+                                                </td>
+                                                <td>
+                                                    <div class="fw-600">None</div>
+                                                </td>
+                                                <td>
+                                                    <div class="fw-600">You have no orders yet.</div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-inline-flex align-items-center empty">
+                                                        <div class="circle"></div>
+                                                        <div class="ps-2">None</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="fw-600">None</div>
+                                                </td>
+                                                <td>
+                                                    <div class="fw-600">None</div>
+                                                </td>
+                                            </tr>
+                                        {{/if}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+     </div>

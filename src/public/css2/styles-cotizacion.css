@@ -1,0 +1,322 @@
+
+body{
+    height: 100%;
+    background-color: white;
+    background-image: url("assets/fondo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+nav{
+    padding-left: 30px;
+}
+
+h1{
+    font-size: 65px;
+    text-shadow: 0 6px 2px #707070;
+}
+
+.logo{
+    width: 93px ;
+    height: 30px;
+}
+
+
+
+
+  .title{
+      padding-top: 5%;
+      font-size: 60px;
+  }
+  .text{
+      padding-top: 0px;
+  }
+
+  .disclaimer{
+    font-size: 8.5px;
+}
+.btnDp{
+    width: 200px;
+  }
+  .price_plan_area {
+      position: relative;
+      z-index: 1;
+      background-color: #f0f0f0;
+  }
+  
+  .single_price_plan {
+      position: relative;
+      z-index: 1;
+      border-radius: 0.5rem 0.5rem 0 0;
+      -webkit-transition-duration: 500ms;
+      transition-duration: 500ms;
+      margin-bottom: 50px;
+      background-color: #ffffff;
+      padding: 3rem 4rem;
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      .single_price_plan {
+          padding: 3rem;
+      }
+  }
+  @media only screen and (max-width: 575px) {
+      .single_price_plan {
+          padding: 3rem;
+      }
+  }
+  .single_price_plan::after {
+      position: absolute;
+      content: "";
+      background-image: url("https://bootdey.com/img/half-circle-pricing.png");
+      background-repeat: repeat;
+      width: 100%;
+      height: 17px;
+      bottom: -17px;
+      z-index: 1;
+      left: 0;
+  }
+  .single_price_plan .title {
+      text-transform: capitalize;
+      -webkit-transition-duration: 500ms;
+      transition-duration: 500ms;
+      margin-bottom: 2rem;
+  }
+  .single_price_plan .title span {
+      color: #ffffff;
+      padding: 0.2rem 0.6rem;
+      font-size: 12px;
+      text-transform: uppercase;
+      background-color: black;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      border-radius: 0.25rem;
+  }
+  .single_price_plan .title h3 {
+      font-size: 1.25rem;
+  }
+  .single_price_plan .title p {
+      font-weight: 300;
+      line-height: 1;
+      font-size: 14px;
+  }
+  .single_price_plan .title .line {
+      width: 80px;
+      height: 4px;
+      border-radius: 10px;
+      background-color: #9FFAB7;
+  }
+  .single_price_plan .price {
+      margin-bottom: 1.5rem;
+  }
+  .single_price_plan .price h4 {
+      position: relative;
+      z-index: 1;
+      font-size: 2.4rem;
+      line-height: 1;
+      margin-bottom: 0;
+      color: #9FFAB7;
+      display: inline-block;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-color: transparent;
+      background-image: -webkit-gradient(linear, left top, right top, from(#9FFAB7), to(#272524));
+      background-image: linear-gradient(90deg, #9FFAB7, #272524);
+  }
+  .single_price_plan .description {
+      position: relative;
+      margin-bottom: 1.5rem;
+  }
+  .single_price_plan .description p {
+      line-height: 16px;
+      margin: 0;
+      padding: 10px 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -ms-grid-row-align: center;
+      align-items: center;
+  }
+  .single_price_plan .description p i {
+      color: #2ecc71;
+      margin-right: 0.5rem;
+  }
+  .single_price_plan .description p .lni-close {
+      color: #e74c3c;
+  }
+  .single_price_plan.active,
+  .single_price_plan:hover,
+  .single_price_plan:focus {
+      -webkit-box-shadow: 0 6px 50px 8px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 50px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  
+  .section-heading h3 {
+      margin-bottom: 1rem;
+      font-size: 3.125rem;
+      letter-spacing: -1px;
+  }
+  
+  .section-heading p {
+      margin-bottom: 0;
+      font-size: 1.25rem;
+  }
+  
+  .section-heading .line {
+      width: 120px;
+      height: 5px;
+      margin: 10px auto 0;
+      border-radius: 6px;
+      background: #272524;
+      background: -webkit-gradient(linear, left top, right top, from(#9FFAB7), to(#272524));
+      background: linear-gradient(to right, #9FFAB7, #272524);
+      margin-bottom: 10px;
+  }
+  
+  .select {
+    display:flex;
+    flex-direction: column;
+    position:relative;
+    width:250px;
+    height:40px;
+  }
+  /*DROPDOWN*/
+ .drops{
+     padding-top: 0px;
+    position: relative;
+	width: 300px;
+	margin-right: 1rem; 
+ }
+
+ .drops[open] {
+	z-index: 1;
+}
+
+details {
+	position: relative;
+	width: 300px;
+	margin-right: 1rem;
+}
+
+details[open] {
+	z-index: 1;
+}
+
+summary {
+	padding: 1rem;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: #ddd;
+	list-style: none;
+}
+
+summary::-webkit-details-marker {
+	display: none;
+}
+
+details[open] summary:before {
+	content: '';
+	display: block;
+	width: 100vw;
+	height: 100vh;
+	background: transparent;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+summary:after {
+	content: '';
+	display: inline-block;
+	float: right;
+	width: .5rem;
+	height: .5rem;
+	border-bottom: 1px solid currentColor;
+	border-left: 1px solid currentColor;
+	border-bottom-left-radius: 2px;
+	transform: rotate(45deg) translate(50%, 0%);
+	transform-origin: center center;
+	transition: transform ease-in-out 100ms
+}
+
+summary:focus {
+	outline: none;
+}
+
+details[open] summary:after {
+	transform: rotate(-45deg) translate(0%, 0%);
+}
+
+
+.dropdown {
+	width: 80%;
+	background: #ddd;
+	position: absolute;
+	top: calc(100% + .5rem);
+	left: 0;
+	padding: 1rem;
+	margin: 0;
+	box-sizing: border-box;
+	border-radius: 5px;
+	max-height: 200px;
+	overflow-y: auto;
+}
+
+.dropd-item {
+	margin: 0;
+	padding: 1rem 0;
+	border-bottom: 1px solid #ccc;
+}
+
+.dropd-item:first-child {
+	padding-top: 0;
+}
+
+.dropd-item:last-child {
+	padding-bottom: 0;
+	border-bottom: none;
+}
+ul{
+    list-style-type: none;
+}
+
+
+/* FAKE SELECT */
+
+summary.radios {
+	counter-reset: radios;
+}
+
+input[type=radio] {
+	counter-increment: radios;
+	appearance: none;
+	display: none;
+}
+
+input[type=radio]:checked {
+	display: inline;
+}
+
+input[type=radio]:after {
+	content: attr(title);
+	display: inline;
+	font-size: 1rem;
+}
+
+ul.list {
+	counter-reset: labels;
+}
+
+label {
+	width: 100%;
+	display: block;
+	cursor: pointer;
+}
+
+p{
+    font-weight: bold;
+}

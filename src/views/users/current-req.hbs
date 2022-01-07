@@ -1,0 +1,127 @@
+    
+        <div class="container">
+            <div class="main-body">
+                <br><br>
+                  <div class="row gutters-sm">
+
+                    <!--        NAME        -->
+                    <div class="col-md-12 mb-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="d-flex flex-column align-items-center text-center">
+                            <img src="https://placekitten.com/200/200" alt="Avatar" class="rounded-circle" width="150">
+                            <div class="mt-3">
+                              <h4>{{user.Usuario_Cliente}}</h4>
+                              <p class="text-muted font-size-sm">{{user.Correo_Cliente}}</p>
+                              <p class="text-secondary mb-1">Server: {{pedido.Servidor}} | {{pedido.Modalidad}} | ${{pedido.Precio}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--        NAME        -->
+                    <!--        DESIRED/ACTUAL        -->
+                    <div class="row gutters-sm">
+                        <div class="col-sm-2 mb-2">
+                          <div class="card h-100">
+                            <div class="card-body">
+                              <h6 class="d-flex align-items-center mb-3">Desired</h6>
+                              <table class="table table-hover">
+                                <thead>
+                                  <tr>  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>{{pedido.Rango_Deseado}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <form action="/auth/datainp" method="POST">
+                              <input type="text" name="usercl" value="{{user.Usuario_Cliente}}" hidden>
+                              <input type="text" name="pedidoid" value="{{pedido.ID_Pedido}}" hidden>
+                                <p style="font-size: 11px;">Submit your LOL credentials if you havent done yet.</p><hr>
+                                League of Legends<br> account:
+                                <input type="text" name="id" class="form-control" placeholder="ID">
+                                <input type="password" name="pw" class="form-control" placeholder="password">
+                                <button type="submit" class="btn btn-dark btn-sm">Submit</button><hr>
+                                <p style="font-size: 11px;">Your credentials will be encrypted for security<br>We won't notify you we have your credentials for security</p><hr>
+                                
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <!--actual-->
+                        <div class="col-sm-2 mb-2">
+                          <div class="card h-100">
+                            <div class="card-body">
+                              <h6 class="d-flex align-items-center mb-3">Actual</h6>
+                              <table class="table table-hover">
+                                <thead>
+                                  <tr> </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>{{pedido.Rango_Actual}}<br>LP: {{pedido.LP_Actuales}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!-- Create payment FOR TIPS
+                              Tips:
+                              <form>
+                                <p style="font-size: 11px;">You can tip your booster by inserting the amount and paying.</p>
+                                <input class="form-control" type="number" min="0" name="tipval" value="0">
+                              </form>-->
+                            </div>
+                          </div>
+                          
+                        </div>
+
+                        <!--        DESIRED/ACTUAL        -->
+
+
+                        <!---           CHAT        PARTE DEL USUARIO        -->
+                        <div class="col-md-8">
+                            <div class="inbox_msg" id="mss">
+                            <div class="mesgs">
+                              <div class="msg_history" id="chat">
+                              <div class="incoming_msg1">
+                                <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                                <div class="received_msg">
+                                <div class="received_withd_msg">
+                                  <span class="time_date"> ELOHOTLINE CUSTOMER SUPPORT </span>
+                                  <p>Welcome to elo-hotline.com and thanks for you purchase.
+                                    You will find updates about your order here.<br>Fill the inputs on your left with your Riot Account info so your booster can start working as soon as possible.<br><br>
+                                    Our messages are encrypted so you dont have to worry about your credentials.<br><br>
+                                    This chat is actually disabled but we are working hard to make it work.<br>
+                                    You can contact with your booster or the customer support any time you want.<br>
+                                    Discord server: <a href="https://discord.gg/wXEGGhDs94">https://discord.gg/wXEGGhDs94</a><br>Customer support: Ashevix#0066<br>
+                                    Email: elo.hotline@gmail.com<br>
+                                    Facebook: <a href="https://www.facebook.com/cheapnaeloboost">https://www.facebook.com/cheapnaeloboost</a>
+                                    Twitter: <a href="https://twitter.com/EloHotline">https://twitter.com/EloHotline</a><br><br>
+                                    Dont forget to follow us on our social media!
+                                  </p>
+                                  </div>
+                                </div>
+                              </div>    
+                              </div>
+                              <div class="type_msg">
+                              <div class="input_msg_write">
+                                <form id="message-form" autocomplete="off">
+                                <input id="user" type="text" value="{{user.ID_Cliente}}" style="display: none;">
+                                <input id="pedidoid" type="text" value="{{pedido.ID_Pedido}}"  style="display: none;">
+                                  <input id="message" type="text" class="write_msg" placeholder="Type a message" />
+                                  <button disabled class="msg_send_btn" type="submit">Send</button>
+                                </form>
+                              </div>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                          <!---           CHAT                -->
+                      </div>
+                  </div>
+                </div>
+            </div>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+    <script src="/js/main.js"></script>

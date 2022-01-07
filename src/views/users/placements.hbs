@@ -1,0 +1,244 @@
+      <!--CONTENIDO DE CADA PAGINA     CONTENIDO DE CADA PAGINA    CONTENIDO DE CADA PAGINA -->
+      
+        <!-- Background image -->
+        <div
+          class="p-5 text-center bg-image"
+          style="
+            background-image: url('/assets/fondo_index.jpg');
+            height: 400px;
+          ">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="text-white">
+                <h1 class="mb-3">LOL DIVISION ELO BOOST
+                </h1>
+              </div>
+            </div>
+        </div>
+        <!-- Background image -->
+      </header>
+
+      
+
+      <!--Container-->
+      <section class="price_plan_area section_padding_130_80" id="pricing">
+        <form action="/users/placements" method="POST">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 col-lg-6">
+              <!-- Section Heading-->
+              <div class="section-heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                
+                <div class="line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <!-- Single Price Plan Area-->
+            
+            <!-- ACTUAL RANK -->
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+              <div class="single_price_plan active wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                <!-- Side Shape-->
+                <div class="title">
+                  <h3>Last Rank</h3>
+                  <div class="line"></div>
+                  <div class="text-center" ><img src="/assets/img1.png" width="100%" height="100%" alt="Avatar" class="rounded-circle"></div>
+                </div>
+                <div class="description">
+                  <p><i class="lni lni-checkmark-circle"></i>RANK</p>
+                  <div class="drops">
+                    {{#if newPedido}}
+                      <select id="actual" name="actual" class="dropdown" disabled>
+                    {{else}}
+                      <select id="actual" name="actual" class="dropdown">
+                    {{/if}}
+                    
+                      {{#if newPedido}}
+                        <option selected hidden><li class="dropd-item">{{newPedido.Rango_Actual_Activo}}</li></option>
+                      {{/if}}
+                      <option><li class="dropd-item">Iron 4</li></option>
+                      <option><li class="dropd-item">Iron 3</li></option>
+                      <option><li class="dropd-item">Iron 2</li></option>
+                      <option><li class="dropd-item">Iron 1</li></option>
+                      <option><li class="dropd-item">Bronze 4</li></option>
+                      <option><li class="dropd-item">Bronze 3</li></option>
+                      <option><li class="dropd-item">Bronze 2</li></option>
+                      <option><li class="dropd-item">Bronze 1</li></option>
+                      <option><li class="dropd-item">Silver 4</li></option>
+                      <option><li class="dropd-item">Silver 3</li></option>
+                      <option><li class="dropd-item">Silver 2</li></option>
+                      <option><li class="dropd-item">Silver 1</li></option>
+                      <option><li class="dropd-item">Gold 4</li></option>
+                      <option><li class="dropd-item">Gold 3</li></option>
+                      <option><li class="dropd-item">Gold 2</li></option>
+                      <option><li class="dropd-item">Gold 1</li></option>
+                      <option><li class="dropd-item">Platinum 4</li></option>
+                      <option><li class="dropd-item">Platinum 3</li></option>
+                      <option><li class="dropd-item">Platinum 2</li></option>
+                      <option><li class="dropd-item">Platinum 1</li></option>
+                      <option><li class="dropd-item">Diamond 4</li></option>
+                      <option><li class="dropd-item">Diamond 3</li></option>
+                      <option><li class="dropd-item">Diamond 2</li></option>
+                      <option><li class="dropd-item">Diamond 1</li></option>
+                      <option><li class="dropd-item">Master</li></option>
+                    </select>
+                  </div>
+                  <br><br><br> 
+                  <hr>
+                  <p><i class="lni lni-checkmark-circle"></i>LEAGUE POINTS</p>
+                  {{#if newPedido}}
+                    <input value="{{newPedido.LP_Actuales_Activo}}" type="number" name="lps" min="0" max="100" width="100%" disabled>  
+                  {{else}}
+                    <input value="0" type="number" name="lps" min="0" max="100" width="100%">
+                  {{/if}}
+                  <hr>
+                  <p><i class="lni lni-checkmark-circle"></i>SERVER</p>
+                  <div class="drops">
+                    {{#if newPedido}}
+                      <select id="servers" name="server" class="dropdown" disabled>
+                    {{else}}
+                      <select id="servers" name="server" class="dropdown">
+                    {{/if}}
+                      
+                        <option><li class="dropd-item">North America</li></option>
+                      </select>
+                  </div>
+                      
+                  <br><br><br>
+                  <p><i class="lni lni-checkmark-circle"></i>QUEUE</p>
+                  <div class="drops">
+                    {{#if newPedido}}
+                      <select id="modality" name="modality" class="dropdown" disabled>
+                    {{else}}
+                      <select id="modality" name="modality" class="dropdown">
+                    {{/if}}
+                    
+                      {{#if newPedido}}
+                        <option selected hidden><li class="dropd-item">{{newPedido.Modalidad_Activo}}</li></option>
+                      {{/if}}
+                      <option><li class="dropd-item">Solo Duo Queue</li></option>
+                      <option><li class="dropd-item">Flex Queue</li></option>
+                    </select>
+                  </div>
+                  <br>
+                  <br><br>
+                  <hr>
+                  <p><i class="lni lni-close"></i>ROLES</p>
+                  
+                  <div class="form-check form-check-inline">
+                    {{#if newPedido.checktop}}
+                    <input class="form-check-input" name="checktop" type="checkbox" id="inlineCheckbox1" value="top" checked>
+                    {{else}}
+                    <input class="form-check-input" name="checktop" type="checkbox" id="inlineCheckbox1" value="top">
+                    {{/if}}
+                    <label class="form-check-label" for="inlineCheckbox1">TOP</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    {{#if newPedido.checkjg}}
+                      <input class="form-check-input" name="checkjg" type="checkbox" id="inlineCheckbox2" value="jg" checked>
+                    {{else}}
+                      <input class="form-check-input" name="checkjg" type="checkbox" id="inlineCheckbox2" value="jg">
+                    {{/if}}
+                    <label class="form-check-label" for="inlineCheckbox2">JUNGLE</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    {{#if newPedido.checkmid}}
+                    <input class="form-check-input" name="checkmid" type="checkbox" id="inlineCheckbox3" value="mid" checked>
+                    {{else}}
+                    <input class="form-check-input" name="checkmid" type="checkbox" id="inlineCheckbox3" value="mid">
+                    {{/if}}
+                    <label class="form-check-label" for="inlineCheckbox3">MID</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    {{#if newPedido.checkadc}}
+                    <input class="form-check-input" name="checkadc" type="checkbox" id="inlineCheckbox3" value="adc" checked>
+                    {{else}}
+                    <input class="form-check-input" name="checkadc" type="checkbox" id="inlineCheckbox3" value="adc">
+                    {{/if}}
+                    <label class="form-check-label" for="inlineCheckbox3">ADC</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    {{#if newPedido.checksup}}
+                    <input class="form-check-input" name="checksup" type="checkbox" id="inlineCheckbox3" value="sup" checked>
+                    {{else}}
+                    <input class="form-check-input" name="checksup" type="checkbox" id="inlineCheckbox3" value="sup">
+                    {{/if}}
+                    <label class="form-check-label" for="inlineCheckbox3">SUPPORT</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- DESIRED RANK -->
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+              <div class="single_price_plan wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                <div class="title">
+                  <h3>Placements</h3>
+                  <div class="line"></div>
+                  <div class="text-center" ><img src="/assets/img2.png" width="100%" height="100%" alt="Avatar" class="rounded-circle"></div>
+                </div>
+                <div class="description">
+                  <p><i class="lni lni-checkmark-circle"></i>PLACEMENT GAMES</p>
+                  <br>
+                    {{#if games}}
+                        <input value="{{games}}" type="number" name="games" min="0" max="10" width="100%" disabled>
+                    {{else}}
+                        <input value="0" type="number" name="games" min="0" max="10" width="100%">
+                    {{/if}}
+                  <br>
+                  <br>
+                  <hr>
+                  <p><i class="lni lni-checkmark-circle"></i>OPTIONS</p>
+                  <div class="form-check">
+                    {{#if newPedido.DuoQ}}
+                    <input class="form-check-input" type="checkbox" value="duo" id="defaultCheck1" name="duo" checked disabled>
+                    {{else}}
+                      <input class="form-check-input" type="checkbox" value="duo" id="defaultCheck1" name="duo">
+                    {{/if}}
+                    <label class="form-check-label" for="defaultCheck1">
+                      DUO<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                      </svg>
+                    </label>
+                  </div>
+                  <hr>
+                  {{#if newPedido}}
+                  {{else}}
+                    <div class="button text-center"><button type="submit" class="btn btn-dark">PRICE CHECK</a></div>
+                  {{/if}}
+                </div>
+              </div>
+            </div>
+            </form>
+            {{#if newPedido}}
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+              <div class="single_price_plan wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                <div class="price text-center">
+                  <h4>GENERATED <BR>ORDER INFO</h4><hr>
+                  <h6>FROM: {{newPedido.Rango_Actual_Activo}} - {{newPedido.LP_Actuales_Activo}}lp<br> TO: {{newPedido.Rango_Deseado_Activo}} - 0lp<br><br>
+                  Server: {{newPedido.Servidor_Activo}}<br>{{newPedido.Modalidad_Activo}}
+                  </h6>
+                  <hr>
+                  {{#if precio}}
+                      <h4>${{precio}} USD</h4>
+                  {{else}}
+                      <h4>$0.0 USD</h4>
+                  {{/if}}
+                  <br>
+                  <form method="GET" action="/users/placements/{{games}}/{{newPedido.Rango_Actual_Activo}}/{{newPedido.Servidor_Activo}}/{{newPedido.Modalidad_Activo}}/{{newPedido.Rol_Activo}}/{{newPedido.Campeones_Activo}}/{{#if newPedido.DuoQ}}{{newPedido.DuoQ}}{{else}}0{{/if}}">
+                    <button type="submit" class="btn btn-success">BUY NOW</button><hr>
+                    <a href="/users/"><button type="button" class="btn btn-dark">Make new order</button></a>
+                  </form>
+                  
+                  <hr>
+                  <p>Dont forget to update the price or it will pick the last checked order.<hr></p>
+                    No refunds available.
+                </div>
+                
+            </div>
+            {{/if}}
+          </div>
+        </div>
+        
+      </section>
+    <!--Container-->
